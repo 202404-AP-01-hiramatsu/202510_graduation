@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匿名フィードバック - 確認</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="confirm-page">
+    <div class="container">
+        <header>
+            <h1 id="confirmPageTitle">入力内容の確認</h1>
+            <p id="confirmPageSubtitle" class="header-subtitle">送信前に内容をご確認ください</p>
+        </header>
+
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+            <p>送信中...</p>
+        </div>
+
+        <main>
+            <section id="confirmSection" class="confirmation-card">
+                <div class="confirmation-list">
+                    <div class="confirmation-item">
+                        <h2>発表者名</h2>
+                        <p id="confirmPresenter"></p>
+                    </div>
+
+                    <div class="confirmation-item">
+                        <h2>良かった点</h2>
+                        <p id="confirmPositive"></p>
+                    </div>
+
+                    <div class="confirmation-item">
+                        <h2>改善するべき点</h2>
+                        <p id="confirmImprovement"></p>
+                    </div>
+
+                    <div class="confirmation-item">
+                        <h2>備考</h2>
+                        <p id="confirmRemarks"></p>
+                    </div>
+
+                    <div class="confirmation-item">
+                        <h2>添付ファイル</h2>
+                        <div id="confirmAttachment"></div>
+                    </div>
+                </div>
+
+                <div class="confirmation-actions">
+                    <a href="index.html" id="confirmBackLink" class="btn btn-secondary">戻って修正する</a>
+                    <button type="button" id="confirmSubmitButton" class="btn btn-primary">この内容で送信する</button>
+                </div>
+            </section>
+
+            <div id="successMessage" class="success-message" style="display: none;">
+                <div class="success-content">
+                    <h3>✓ フィードバックを送信しました</h3>
+                    <p>ご協力ありがとうございました。</p>
+                    <a href="index.html" class="btn btn-secondary">別のフィードバックを送信</a>
+                    <a href="viewer.html" class="btn btn-secondary">フィードバック一覧へ</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Anonymous Feedback App. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

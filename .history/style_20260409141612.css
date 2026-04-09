@@ -1,0 +1,318 @@
+/* ========================================
+   グローバルスタイル
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ========================================
+   ヘッダー
+   ======================================== */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header nav {
+    margin-top: 15px;
+}
+
+/* ========================================
+   メインコンテンツ
+   ======================================== */
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+section {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #667eea;
+}
+
+/* ========================================
+   フォーム
+   ======================================== */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ========================================
+   ボタン
+   ======================================== */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 0.95em;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 16px;
+    font-size: 0.85em;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* ========================================
+   フィードバックリスト
+   ======================================== */
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feedback-item {
+    padding: 15px;
+    border-left: 4px solid #667eea;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.feedback-item:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.feedback-item h3 {
+    color: #667eea;
+    margin-bottom: 8px;
+}
+
+.feedback-item .meta {
+    font-size: 0.85em;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+.feedback-item .category {
+    display: inline-block;
+    background-color: #e7e7ff;
+    color: #667eea;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    margin-right: 10px;
+}
+
+.feedback-item .message {
+    color: #666;
+    margin-top: 10px;
+    word-break: break-word;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.feedback-item .actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.empty-message,
+.loading-message,
+.error-message {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    font-style: italic;
+}
+
+.error-message {
+    color: #dc3545;
+}
+
+/* ========================================
+   フィードバック詳細
+   ======================================== */
+.feedback-detail {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.detail-card h2 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.detail-card p {
+    margin-bottom: 15px;
+}
+
+.message-content {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border-left: 4px solid #667eea;
+    border-radius: 4px;
+}
+
+.message-content strong {
+    color: #555;
+}
+
+.message-content p {
+    margin-top: 10px;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* ========================================
+   フッター
+   ======================================== */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* ========================================
+   レスポンシブデザイン
+   ======================================== */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.9em;
+    }
+}

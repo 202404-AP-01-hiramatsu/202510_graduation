@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匿名フィードバック - 管理</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+    <div class="container">
+        <header>
+            <h1>管理ページ</h1>
+            <p class="header-subtitle">Supabase に保存されたフィードバックを管理します</p>
+        </header>
+
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+            <p>処理中...</p>
+        </div>
+
+        <main>
+            <section id="adminLoginPanel" class="admin-card">
+                <h2>管理者認証</h2>
+                <p class="admin-warning-subtext">
+                    管理ページを開くにはパスワードが必要です。
+                </p>
+                <div class="admin-login-form">
+                    <label for="adminPassword">パスワード</label>
+                    <input type="password" id="adminPassword" autocomplete="current-password">
+                    <button type="button" id="adminLoginButton" class="btn btn-primary">ログインする</button>
+                </div>
+                <p id="adminLoginError" class="admin-error" style="display: none;">
+                    パスワードが正しくありません。
+                </p>
+            </section>
+
+            <section id="adminPanel" class="admin-card" style="display: none;">
+                <h2>全件削除</h2>
+                <p class="admin-warning">
+                    この操作を実行すると、Supabase の <code>feedbacks</code> テーブルに保存されているフィードバックをすべて削除します。
+                </p>
+                <p class="admin-warning-subtext">
+                    削除後は元に戻せません。実行前に本当に不要なデータか確認してください。
+                </p>
+                <div class="admin-actions">
+                    <a href="viewer.html" class="btn btn-secondary">閲覧ページへ戻る</a>
+                    <button type="button" id="deleteAllFeedbackButton" class="btn btn-danger">Supabase のフィードバックを全件削除</button>
+                </div>
+            </section>
+
+            <div id="adminSuccessMessage" class="success-message" style="display: none;">
+                <div class="success-content">
+                    <h3>✓ 全件削除が完了しました</h3>
+                    <p>Supabase のフィードバックデータを削除しました。</p>
+                    <a href="viewer.html" class="btn btn-secondary">閲覧ページへ戻る</a>
+                    <a href="index.html" class="btn btn-secondary">投稿ページへ戻る</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Anonymous Feedback App. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

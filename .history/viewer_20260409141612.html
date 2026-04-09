@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フィードバック詳細ビューア</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>フィードバック詳細ビューア</h1>
+            <nav>
+                <a href="index.html" class="btn btn-secondary">戻る</a>
+            </nav>
+        </header>
+
+        <main>
+            <div id="feedbackDetail" class="feedback-detail">
+                <p class="loading-message">フィードバックを読み込み中...</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Feedback App. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // フィードバック詳細情報の表示
+        document.addEventListener('DOMContentLoaded', () => {
+            const feedbackId = new URLSearchParams(window.location.search).get('id');
+            if (feedbackId) {
+                displayFeedbackDetail(feedbackId);
+            } else {
+                document.getElementById('feedbackDetail').innerHTML =
+                    '<p class="error-message">フィードバックが見つかりません</p>';
+            }
+        });
+
+        function displayFeedbackDetail(id) {
+            const feedbackData = localStorage.getItem(`feedback_${id}`);
+            if (feedbackData) {
+                const feedback = JSON.parse(feedbackData);
+                const html = `
+                    <div class="detail-card">
+                        <h2>${escapeHtml(feedback.name)}</h2>
+                        <p><strong>カテゴリ:</strong> ${getCategoryLabel(feedback.category)}</p>
+                        <p><strong>投稿日時:</strong> ${new Date(feedback.timestamp).toLocaleString('ja-JP')}</p>
+                        <div class="message-content">
+                            <strong>メッセージ:</strong>
+                            <p>${escapeHtml(feedback.message).replace(/\n/g, '<br>')}</p>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('feedbackDetail').innerHTML = html;
+            } else {
+                document.getElementById('feedbackDetail').innerHTML =
+                    '<p class="error-message">フィードバックが見つかりません</p>';
+            }
+        }
+
+        function getCategoryLabel(category) {
+            const labels = {
+                'bug': 'バグ報告',
+                'feature': '機能リクエスト',
+                'improvement': '改善提案',
+                'other': 'その他'
+            };
+            return labels[category] || category;
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匿名フィードバック - 投稿</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>匿名フィードバック投稿</h1>
+            <p class="header-subtitle">発表者へのご意見をお聞かせください</p>
+        </header>
+
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+            <p>送信中...</p>
+        </div>
+
+        <main>
+            <section class="feedback-form">
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="presenter">発表者名 <span class="required">*</span></label>
+                        <select id="presenter" name="presenter" required>
+                            <option value="">選択してください</option>
+                            <option value="田中太郎">田中太郎</option>
+                            <option value="鈴木花子">鈴木花子</option>
+                            <option value="佐藤次郎">佐藤次郎</option>
+                            <option value="山田美咲">山田美咲</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="positive">良かった点 <span class="required">*</span></label>
+                        <textarea id="positive" name="positive" 
+                            placeholder="発表で良かった点や工夫していた部分について教えてください"
+                            rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="improvement">改善するべき点 <span class="required">*</span></label>
+                        <textarea id="improvement" name="improvement" 
+                            placeholder="より良くするためのご提案をお願いします"
+                            rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="remarks">備考</label>
+                        <textarea id="remarks" name="remarks" 
+                            placeholder="その他のご意見やコメント（任意）"
+                            rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">送信する</button>
+                </form>
+            </section>
+
+            <div id="successMessage" class="success-message" style="display: none;">
+                <div class="success-content">
+                    <h3>✓ フィードバックを送信しました</h3>
+                    <p>ご協力ありがとうございました。</p>
+                    <button onclick="location.reload()" class="btn btn-secondary">別のフィードバックを送信</button>
+                    <a href="viewer.html" class="btn btn-secondary">フィードバック一覧へ</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Anonymous Feedback App. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

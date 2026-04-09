@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匿名フィードバック - 投稿</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="index-page">
+    <div class="container">
+        <header>
+            <h1 id="indexPageTitle">匿名フィードバック投稿</h1>
+            <p id="indexPageSubtitle" class="header-subtitle">発表者へのご意見をお聞かせください</p>
+        </header>
+
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+            <p>送信中...</p>
+        </div>
+
+        <main>
+            <section class="feedback-form">
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="presenter">発表者名 <span class="required">*</span></label>
+                        <select id="presenter" name="presenter" required>
+                            <option value="">選択してください</option>
+                            <option value="山木 秀治">山木 秀治</option>
+                            <option value="富澤 優華">富澤 優華</option>
+                            <option value="谷 まゆ子">谷 まゆ子</option>
+                            <option value="野口 千彩子">野口 千彩子</option>
+                            <option value="大井 琉誠 LEE J">大井 琉誠 LEE J</option>
+                            <option value="川口 ひより">川口 ひより</option>
+                            <option value="杉原 有哉">杉原 有哉</option>
+                            <option value="白子 政弘">白子 政弘</option>
+                            <option value="筒井 沙莉奈">筒井 沙莉奈</option>
+                            <option value="仲村 望来">仲村 望来</option>
+                            <option value="田村 晴香">田村 晴香</option>
+                            <option value="工藤 サフィア">工藤 サフィア</option>
+                            <option value="宿利 忠海">宿利 忠海</option>
+                            <option value="平松先生">平松先生</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="positive">良かった点 <span class="required">*</span></label>
+                        <textarea id="positive" name="positive" placeholder="発表で良かった点や工夫していた部分について教えてください" rows="4"
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="improvement">改善するべき点 <span class="required">*</span></label>
+                        <textarea id="improvement" name="improvement" placeholder="より良くするためのご提案をお願いします" rows="4"
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="remarks">備考</label>
+                        <textarea id="remarks" name="remarks" placeholder="その他のご意見やコメント（任意）" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="attachmentInput">添付ファイル</label>
+                        <div id="attachmentDropzone" class="attachment-dropzone" tabindex="0" role="button" aria-controls="attachmentInput">
+                            <p class="attachment-dropzone-title">ここにファイルをドロップ</p>
+                            <p class="attachment-dropzone-subtitle">またはクリックして選択してください</p>
+                            <p class="attachment-dropzone-note">画像・PDF・テキストなど 1 ファイルまで / 3MB 以下</p>
+                        </div>
+                        <input type="file" id="attachmentInput" class="attachment-input" hidden>
+                        <div id="attachmentPreview" class="attachment-preview" style="display: none;"></div>
+                    </div>
+
+                    <button type="submit" id="feedbackSubmitButton" class="btn btn-primary">確認する</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Anonymous Feedback App. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匿名フィードバック - 閲覧</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>フィードバック閲覧</h1>
+            <p class="header-subtitle">発表者別のフィードバック確認</p>
+            <nav>
+                <a href="index.html" class="btn btn-secondary">投稿に戻る</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="feedback-viewer">
+                <div class="presenter-selector">
+                    <label for="presenterSelect">発表者を選択:</label>
+                    <select id="presenterSelect">
+                        <option value="">-- 発表者を選択してください --</option>
+                        <option value="田中太郎">田中太郎</option>
+                        <option value="鈴木花子">鈴木花子</option>
+                        <option value="佐藤次郎">佐藤次郎</option>
+                        <option value="山田美咲">山田美咲</option>
+                    </select>
+                </div>
+
+                <div id="feedbackList" class="feedback-list">
+                    <p class="empty-message">発表者を選択するとフィードバックが表示されます</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Anonymous Feedback App. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

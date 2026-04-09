@@ -1,0 +1,958 @@
+/* ========================================
+   グローバルスタイル
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Bahnschrift", "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(135deg, #e4f2ff 0%, #c9def7 52%, #d8e5fb 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+body.index-page {
+    background: radial-gradient(circle at top left, rgba(50, 157, 224, 0.26), transparent 32%),
+                radial-gradient(circle at bottom right, rgba(15, 74, 151, 0.12), transparent 28%),
+                linear-gradient(135deg, #edf7ff 0%, #d8e9fb 55%, #e8f1ff 100%);
+}
+
+body.viewer-page {
+    background: radial-gradient(circle at top left, rgba(50, 157, 224, 0.18), transparent 30%),
+                radial-gradient(circle at bottom right, rgba(15, 74, 151, 0.1), transparent 26%),
+                linear-gradient(135deg, #eef6ff 0%, #d9e6f7 52%, #e6eefb 100%);
+}
+
+body.confirm-page {
+    background: radial-gradient(circle at top left, rgba(50, 157, 224, 0.2), transparent 30%),
+                radial-gradient(circle at bottom right, rgba(15, 74, 151, 0.08), transparent 24%),
+                linear-gradient(135deg, #edf7ff 0%, #dce9fa 55%, #e8f1ff 100%);
+}
+
+body.admin-page {
+    background: radial-gradient(circle at top left, rgba(50, 157, 224, 0.2), transparent 30%),
+                radial-gradient(circle at bottom right, rgba(15, 74, 151, 0.08), transparent 24%),
+                linear-gradient(135deg, #edf7ff 0%, #dce9fa 55%, #e8f1ff 100%);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+body.index-page .container {
+    background: linear-gradient(180deg, rgba(235, 245, 255, 0.96), rgba(221, 235, 251, 0.94));
+    border-radius: 18px;
+    box-shadow: 0 20px 54px rgba(15, 74, 151, 0.14);
+    border: 1px solid rgba(50, 157, 224, 0.12);
+}
+
+body.viewer-page .container {
+    background: linear-gradient(180deg, rgba(235, 245, 255, 0.96), rgba(221, 235, 251, 0.94));
+    border-radius: 18px;
+    box-shadow: 0 20px 54px rgba(15, 74, 151, 0.14);
+    border: 1px solid rgba(50, 157, 224, 0.12);
+}
+
+body.confirm-page .container {
+    background: linear-gradient(180deg, rgba(235, 245, 255, 0.96), rgba(221, 235, 251, 0.94));
+    border-radius: 18px;
+    box-shadow: 0 20px 54px rgba(15, 74, 151, 0.14);
+    border: 1px solid rgba(50, 157, 224, 0.12);
+}
+
+body.admin-page .container {
+    background: linear-gradient(180deg, rgba(235, 245, 255, 0.96), rgba(221, 235, 251, 0.94));
+    border-radius: 18px;
+    box-shadow: 0 20px 54px rgba(15, 74, 151, 0.14);
+    border: 1px solid rgba(50, 157, 224, 0.12);
+}
+
+body.index-page header {
+    background-color: #ffffff;
+    background-image: url('assets/index-header-logo.png');
+    background-size: 34% auto;
+    background-repeat: no-repeat;
+    background-position: center 20px;
+    position: relative;
+    overflow: hidden;
+    min-height: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 228px 20px 24px;
+    text-shadow: none;
+    color: #184b9b;
+}
+
+body.viewer-page header {
+    background:
+        linear-gradient(90deg, rgba(94, 130, 194, 0.34) 0%, rgba(133, 154, 196, 0.18) 52%, rgba(179, 195, 223, 0.09) 100%),
+        url('assets/header-girl.jpg');
+    background-size: auto 128%;
+    background-repeat: no-repeat;
+    background-position: center 16%;
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 198px 20px 26px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+    margin-top: 30px;
+    margin-bottom: 18px;
+}
+
+body.index-page header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    pointer-events: none;
+}
+
+body.viewer-page header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(32, 52, 89, 0.025));
+    pointer-events: none;
+}
+
+body.confirm-page header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(32, 52, 89, 0.025));
+    pointer-events: none;
+}
+
+body.index-page header > *,
+body.viewer-page header > *,
+body.confirm-page header > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   ヘッダー
+   ======================================== */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.2em;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+body.index-page header h1,
+body.index-page header .header-subtitle {
+    text-shadow: none;
+}
+
+body.index-page header h1 {
+    font-family: "Franklin Gothic Medium", "Bahnschrift SemiBold", "Aptos", "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 1.75em;
+    letter-spacing: 0.03em;
+    color: #0f4a97;
+    margin-bottom: 6px;
+    padding: 0;
+    max-width: calc(100% - 48px);
+}
+
+body.index-page header .header-subtitle {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: "Franklin Gothic Book", "Bahnschrift", "Aptos", "Segoe UI", sans-serif;
+    font-size: 0.96em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #0f4a97;
+    padding: 0;
+    max-width: calc(100% - 72px);
+}
+
+header .header-subtitle {
+    font-size: 1.1em;
+    opacity: 0.95;
+    margin-bottom: 12px;
+}
+
+header nav {
+    margin-top: 20px;
+}
+
+header .btn {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* ========================================
+   メインコンテンツ
+   ======================================== */
+main {
+    margin-bottom: 30px;
+}
+
+section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #667eea;
+    font-size: 1.5em;
+}
+
+/* ========================================
+   フォーム - 投稿ページ
+   ======================================== */
+.feedback-form {
+    max-width: 100%;
+}
+
+.confirmation-card {
+    max-width: 100%;
+}
+
+.admin-card {
+    max-width: 100%;
+    text-align: center;
+}
+
+.admin-login-form {
+    max-width: 420px;
+    margin: 24px auto 0;
+}
+
+.admin-login-form label {
+    text-align: left;
+}
+
+.admin-login-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #d7e3f3;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1em;
+    background: #fbfdff;
+    margin-bottom: 14px;
+}
+
+.admin-login-form input:focus {
+    outline: none;
+    border-color: #4e82c9;
+    box-shadow: 0 0 0 3px rgba(78, 130, 201, 0.12);
+}
+
+.admin-login-form .btn {
+    width: 100%;
+}
+
+.confirmation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.confirmation-item {
+    padding: 20px;
+    border: 1px solid #d8e4f4;
+    border-radius: 12px;
+    background: #f8fbff;
+}
+
+.confirmation-item h2 {
+    color: #0f4a97;
+    font-size: 1.05em;
+    margin-bottom: 10px;
+}
+
+.confirmation-item p {
+    color: #355070;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.confirmation-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.confirmation-actions .btn {
+    min-width: 220px;
+}
+
+.attachment-dropzone {
+    border: 2px dashed #9bb7da;
+    border-radius: 12px;
+    background: #f7fbff;
+    padding: 24px 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.attachment-dropzone:hover,
+.attachment-dropzone.is-dragover {
+    border-color: #4e82c9;
+    background: #eef6ff;
+}
+
+.attachment-dropzone-title {
+    color: #0f4a97;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.attachment-dropzone-subtitle {
+    color: #5a7292;
+    margin-bottom: 6px;
+}
+
+.attachment-dropzone-note {
+    color: #8195b0;
+    font-size: 0.9em;
+}
+
+.attachment-preview {
+    margin-top: 14px;
+}
+
+.attachment-preview-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    border: 1px solid #d8e4f4;
+    border-radius: 12px;
+    background: #f8fbff;
+}
+
+.attachment-preview-image,
+.feedback-attachment-image {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #d6e3f3;
+    background: white;
+}
+
+.attachment-preview-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.attachment-preview-name {
+    color: #204b7a;
+    font-weight: 700;
+    word-break: break-word;
+}
+
+.attachment-preview-size {
+    color: #7387a1;
+    font-size: 0.92em;
+    margin-top: 4px;
+}
+
+.attachment-remove-button {
+    white-space: nowrap;
+}
+
+.confirmation-attachment-card {
+    margin-top: 10px;
+}
+
+.attachment-link {
+    color: #0f4a97;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.attachment-link:hover {
+    text-decoration: underline;
+}
+
+.admin-warning {
+    color: #8b1e3f;
+    font-size: 1.08em;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+.admin-warning-subtext {
+    margin-top: 12px;
+    color: #5b6f88;
+    line-height: 1.8;
+}
+
+.admin-error {
+    color: #c13052;
+    font-weight: 700;
+    margin-top: 14px;
+}
+
+.admin-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #d33f5d 0%, #b42041 100%);
+    color: white;
+    min-width: 260px;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(180, 32, 65, 0.28);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #444;
+    font-size: 1em;
+}
+
+label .required {
+    color: #dc3545;
+    margin-left: 3px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+select {
+    cursor: pointer;
+}
+
+/* ========================================
+   ボタン
+   ======================================== */
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+    padding: 14px 30px;
+    font-size: 1.1em;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 25px;
+    font-size: 0.95em;
+    margin: 5px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+/* ========================================
+   成功メッセージ - 投稿ページ
+   ======================================== */
+.success-message {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.success-content h3 {
+    color: #28a745;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.success-content p {
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+.success-content .btn {
+    margin: 10px 5px;
+}
+
+/* ========================================
+   ローディング表示
+   ======================================== */
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    z-index: 1000;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.loading-spinner::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========================================
+   発表者選択 - 閲覧ページ
+   ======================================== */
+.feedback-viewer {
+    max-width: 100%;
+}
+
+.viewer-actions {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.viewer-actions .btn {
+    min-width: 180px;
+}
+
+.presenter-selector {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.presenter-selector label {
+    color: #667eea;
+    font-size: 1.1em;
+    margin-bottom: 12px;
+}
+
+.presenter-selector select {
+    font-size: 1.05em;
+    padding: 14px;
+}
+
+/* ========================================
+   フィードバックリスト - 閲覧ページ
+   ======================================== */
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feedback-item {
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-left: 5px solid #667eea;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.feedback-item:hover {
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+    border-left-color: #764ba2;
+}
+
+.feedback-number {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.feedback-section {
+    margin-bottom: 15px;
+}
+
+.feedback-section:last-of-type {
+    margin-bottom: 15px;
+}
+
+.feedback-section h3 {
+    color: #667eea;
+    font-size: 1em;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.feedback-section p {
+    color: #2f4158;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.feedback-timestamp {
+    font-size: 0.85em;
+    color: #999;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+    font-weight: 500;
+}
+
+.feedback-item-actions {
+    margin-top: 14px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.feedback-item-actions .btn {
+    min-width: 140px;
+}
+
+.empty-message {
+    text-align: center;
+    color: #999;
+    padding: 40px 20px;
+    font-style: italic;
+    font-size: 1.05em;
+}
+
+/* ========================================
+   フッター
+   ======================================== */
+footer {
+    background: linear-gradient(135deg, rgba(15, 74, 151, 0.88), rgba(27, 102, 181, 0.82));
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 10px 24px rgba(15, 74, 151, 0.18);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* ========================================
+   レスポンシブデザイン
+   ======================================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    header {
+        padding: 30px 15px;
+    }
+
+    body.index-page header {
+        min-height: 280px;
+        background-size: 46% auto;
+        background-position: center 16px;
+        padding-top: 182px;
+        padding-bottom: 22px;
+    }
+
+    body.index-page header h1 {
+        font-size: 1.55em;
+    }
+
+    body.index-page header .header-subtitle {
+        font-size: 0.92em;
+    }
+
+    body.viewer-page header {
+        min-height: 260px;
+        background-size: auto 122%;
+        background-position: center 15%;
+        padding-top: 172px;
+        padding-bottom: 20px;
+        margin-top: 30px;
+        margin-bottom: 16px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header .header-subtitle {
+        font-size: 1em;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    section h2 {
+        font-size: 1.3em;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 0.95em;
+        margin-bottom: 8px;
+    }
+
+    textarea {
+        min-height: 80px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+
+    .btn-primary {
+        padding: 12px 20px;
+    }
+
+    .success-content h3 {
+        font-size: 1.5em;
+    }
+
+    .success-content p {
+        font-size: 1em;
+    }
+
+    .feedback-item {
+        padding: 15px;
+    }
+
+    .confirmation-item {
+        padding: 16px;
+    }
+
+    .attachment-preview-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .attachment-preview-image,
+    .feedback-attachment-image {
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .admin-actions .btn,
+    .btn-danger {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .feedback-section p {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        padding: 20px 10px;
+        margin-bottom: 20px;
+    }
+
+    body.index-page header {
+        min-height: 210px;
+        background-size: 88% auto;
+        background-position: center 14px;
+        padding-top: 122px;
+        padding-bottom: 18px;
+    }
+
+    body.index-page header h1 {
+        font-size: 1.28em;
+    }
+
+    body.index-page header .header-subtitle {
+        font-size: 0.82em;
+    }
+
+    body.viewer-page header {
+        min-height: 230px;
+        background-size: auto 114%;
+        background-position: center 13%;
+        padding-top: 148px;
+        padding-bottom: 14px;
+        margin-top: 26px;
+        margin-bottom: 14px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header .header-subtitle {
+        font-size: 0.9em;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    section h2 {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.9em;
+        margin: 5px 0;
+    }
+
+    .btn-secondary {
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    .success-content {
+        padding: 20px;
+    }
+
+    .confirmation-actions .btn {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .success-content h3 {
+        font-size: 1.3em;
+    }
+
+    .feedback-item {
+        border-left-width: 4px;
+    }
+
+    .presenter-selector label {
+        font-size: 1em;
+    }
+
+    .presenter-selector select {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.9em;
+    }
+}

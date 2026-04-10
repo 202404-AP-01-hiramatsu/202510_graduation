@@ -13,6 +13,22 @@ const EDIT_MODE_PARAM = "mode";
 const EDIT_MODE_VALUE = "edit";
 const ATTACHMENT_META_PREFIX = "__FEEDBACK_ATTACHMENT__";
 const MAX_ATTACHMENT_SIZE_BYTES = 3 * 1024 * 1024;
+const PRESENTER_NAMES = [
+    "山木 秀治",
+    "富澤 優華",
+    "谷 まゆ子",
+    "野口 千彩子",
+    "大井 琉誠 LEE J",
+    "川口 ひより",
+    "杉原 有哉",
+    "白子 政弘",
+    "筒井 沙莉奈",
+    "仲村 望来",
+    "田村 晴香",
+    "工藤 サフィア",
+    "宿利 忠海",
+    "平松先生"
+];
 
 let currentAttachment = null;
 
@@ -29,6 +45,7 @@ if (document.readyState === 'loading') {
 
 function initializePage() {
     const feedbackForm = document.getElementById('feedbackForm');
+    const presenterField = document.getElementById('presenter');
     const presenterSelect = document.getElementById('presenterSelect');
     const confirmSubmitButton = document.getElementById('confirmSubmitButton');
     const deleteAllFeedbackButton = document.getElementById('deleteAllFeedbackButton');
@@ -36,6 +53,9 @@ function initializePage() {
     const adminPasswordInput = document.getElementById('adminPassword');
     const attachmentInput = document.getElementById('attachmentInput');
     const attachmentDropzone = document.getElementById('attachmentDropzone');
+
+    populatePresenterOptions(presenterField);
+    populatePresenterOptions(presenterSelect);
 
     if (feedbackForm) {
         populateFormFromDraft();
@@ -69,6 +89,33 @@ function initializePage() {
 
 function isSupabaseAvailable() {
     return !!(supabaseClient && supabaseUrl && supabaseKey);
+}
+
+function populatePresenterOptions(selectElement) {
+    if (!selectElement) {
+        return;
+    }
+
+    const selectedValue = selectElement.value;
+    const placeholder = selectElement.dataset.placeholder || '選択してください';
+
+    selectElement.innerHTML = '';
+
+    const placeholderOption = document.createElement('option');
+    placeholderOption.value = '';
+    placeholderOption.textContent = placeholder;
+    selectElement.appendChild(placeholderOption);
+
+    PRESENTER_NAMES.forEach((name) => {
+        const option = document.createElement('option');
+        option.value = name;
+        option.textContent = name;
+        selectElement.appendChild(option);
+    });
+
+    if (PRESENTER_NAMES.includes(selectedValue)) {
+        selectElement.value = selectedValue;
+    }
 }
 
 function isEditMode() {

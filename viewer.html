@@ -4,46 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>匿名フィードバック - 閲覧</title>
+    <title>フィードバック一覧 - 閲覧</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="viewer-page">
     <div class="container">
         <header>
+            <div class="viewer-header-slider" aria-hidden="true">
+                <div class="viewer-header-slide is-slide-1"></div>
+                <div class="viewer-header-slide is-slide-2"></div>
+                <div class="viewer-header-slide is-slide-3"></div>
+            </div>
             <h1>フィードバック閲覧</h1>
-            <p class="header-subtitle">発表者別のフィードバック確認</p>
+            <p class="header-subtitle">登壇者ごとのフィードバックを確認できます</p>
         </header>
 
         <main>
             <div class="viewer-actions">
-                <a href="index.html" class="btn btn-secondary">投稿に戻る</a>
-                <a href="admin.html" class="btn btn-secondary">管理ページ</a>
+                <a href="index.html" class="btn btn-secondary">投稿ページに戻る</a>
+                <a href="admin.html" class="btn btn-secondary">管理者ページ</a>
             </div>
             <section class="feedback-viewer">
                 <div class="presenter-selector">
-                    <label for="presenterSelect">発表者を選択:</label>
+                    <label for="presenterSelect">登壇者を選択</label>
                     <select id="presenterSelect">
-                        <option value="">-- 発表者を選択してください --</option>
-                        <option value="山木 秀治">山木 秀治</option>
-                        <option value="富澤 優華">富澤 優華</option>
-                        <option value="谷 まゆ子">谷 まゆ子</option>
-                        <option value="野口 千彩子">野口 千彩子</option>
-                        <option value="大井 琉誠 LEE J">大井 琉誠 LEE J</option>
-                        <option value="川口 ひより">川口 ひより</option>
-                        <option value="杉原 有哉">杉原 有哉</option>
-                        <option value="白子 政弘">白子 政弘</option>
-                        <option value="筒井 沙莉奈">筒井 沙莉奈</option>
-                        <option value="仲村 望来">仲村 望来</option>
-                        <option value="田村 晴香">田村 晴香</option>
-                        <option value="工藤 サフィア">工藤 サフィア</option>
-                        <option value="宿利 忠海">宿利 忠海</option>
-                        <option value="平松先生">平松先生</option>
+                        <option value="">-- 登壇者を選択してください --</option>
+                        <option value="螻ｱ譛ｨ 遘豐ｻ">山木 進一郎</option>
+                        <option value="蟇梧ｾ､ 蜆ｪ闖ｯ">岡本 竜太郎</option>
+                        <option value="隹ｷ 縺ｾ繧・ｭ・">青木 まさき</option>
+                        <option value="驥主哨 蜊・ｽｩ蟄・">高嶋 彩乃</option>
+                        <option value="螟ｧ莠・逅芽ｪ LEE J">大森 友香 LEE J</option>
+                        <option value="蟾晏哨 縺ｲ繧医ｊ">曽我 ひより</option>
+                        <option value="譚牙次 譛牙悼">藤次 恒一</option>
+                        <option value="逋ｽ蟄・謾ｿ蠑・">佐藤 誠一</option>
+                        <option value="遲剃ｺ・豐呵脂螂・">遠藤 恒一郎</option>
+                        <option value="莉ｲ譚・譛帶擂">吉田 恒一</option>
+                        <option value="逕ｰ譚・譎ｴ鬥・">中田 昌平</option>
+                        <option value="蟾･阯､ 繧ｵ繝輔ぅ繧｢">春日井 サファイア</option>
+                        <option value="螳ｿ蛻ｩ 蠢豬ｷ">松尾 美穂子</option>
+                        <option value="蟷ｳ譚ｾ蜈育函">河野真由美</option>
                     </select>
                 </div>
 
                 <div id="feedbackList" class="feedback-list">
-                    <p class="empty-message">発表者を選択するとフィードバックが表示されます</p>
+                    <p class="empty-message">登壇者を選択するとフィードバックが表示されます</p>
                 </div>
             </section>
         </main>
@@ -53,7 +58,6 @@
         </footer>
     </div>
 
-    <!-- Supabase SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>

@@ -92,12 +92,7 @@ body.index-page header {
 }
 
 body.viewer-page header {
-    background:
-        linear-gradient(90deg, rgba(94, 130, 194, 0.34) 0%, rgba(133, 154, 196, 0.18) 52%, rgba(179, 195, 223, 0.09) 100%),
-        url('assets/header-girl.jpg');
-    background-size: auto 128%;
-    background-repeat: no-repeat;
-    background-position: center 16%;
+    background: linear-gradient(90deg, rgba(94, 130, 194, 0.34) 0%, rgba(133, 154, 196, 0.18) 52%, rgba(179, 195, 223, 0.09) 100%);
     position: relative;
     overflow: hidden;
     min-height: 300px;
@@ -122,7 +117,7 @@ body.viewer-page header::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(32, 52, 89, 0.025));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(16, 30, 53, 0.08) 100%);
     pointer-events: none;
 }
 
@@ -135,10 +130,76 @@ body.confirm-page header::after {
 }
 
 body.index-page header > *,
-body.viewer-page header > *,
-body.confirm-page header > * {
+body.confirm-page header > *,
+body.viewer-page header > :not(.viewer-header-slider) {
     position: relative;
     z-index: 1;
+}
+
+.viewer-header-slider {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.viewer-header-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    filter: saturate(1.14) contrast(1.1) brightness(1.05);
+    transform: scale(1.06);
+    animation: viewerHeaderSlide 24s ease-in-out infinite;
+}
+
+.viewer-header-slide.is-slide-1 {
+    background-image:
+        linear-gradient(180deg, rgba(7, 14, 30, 0.06), rgba(9, 16, 31, 0.12)),
+        url('assets/header-girl.jpg');
+    background-size: cover, 78%;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center center, center 20%;
+    animation-delay: 0s;
+}
+
+.viewer-header-slide.is-slide-2 {
+    background-image:
+        linear-gradient(180deg, rgba(7, 14, 30, 0.05), rgba(9, 16, 31, 0.1)),
+        url('assets/viewer-slide-2.png');
+    background-position: center 24%;
+    animation-delay: 8s;
+}
+
+.viewer-header-slide.is-slide-3 {
+    background-image:
+        linear-gradient(180deg, rgba(7, 14, 30, 0.05), rgba(9, 16, 31, 0.1)),
+        url('assets/viewer-slide-3.png');
+    background-position: center 38%;
+    animation-delay: 16s;
+}
+
+@keyframes viewerHeaderSlide {
+    0% {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+    8% {
+        opacity: 1;
+    }
+    28% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+    36% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
 }
 
 /* ========================================
@@ -762,12 +823,23 @@ footer p {
 
     body.viewer-page header {
         min-height: 260px;
-        background-size: auto 122%;
-        background-position: center 15%;
         padding-top: 172px;
         padding-bottom: 20px;
         margin-top: 30px;
         margin-bottom: 16px;
+    }
+
+    .viewer-header-slide.is-slide-1 {
+        background-size: cover, 84%;
+        background-position: center center, center 20%;
+    }
+
+    .viewer-header-slide.is-slide-2 {
+        background-position: center 24%;
+    }
+
+    .viewer-header-slide.is-slide-3 {
+        background-position: center 40%;
     }
 
     header h1 {
@@ -876,12 +948,23 @@ footer p {
 
     body.viewer-page header {
         min-height: 230px;
-        background-size: auto 114%;
-        background-position: center 13%;
         padding-top: 148px;
         padding-bottom: 14px;
         margin-top: 26px;
         margin-bottom: 14px;
+    }
+
+    .viewer-header-slide.is-slide-1 {
+        background-size: cover, 88%;
+        background-position: center center, center 22%;
+    }
+
+    .viewer-header-slide.is-slide-2 {
+        background-position: 58% 24%;
+    }
+
+    .viewer-header-slide.is-slide-3 {
+        background-position: 56% 42%;
     }
 
     header h1 {
